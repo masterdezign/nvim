@@ -14,7 +14,31 @@ set softtabstop=2
 set background=dark
 set laststatus=0
 
-colo darkblue
+" No annoying sound on errors
+set noerrorbells
+set vb t_vb=
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+
+try
+  colorscheme wombat256mod
+catch
+endtry
+
+" Match wombat colors in nerd tree
+hi Directory guifg=#8ac6f2
+
+" Searing red very visible cursor
+hi Cursor guibg=red
+
+" Use same color behind concealed unicode characters
+hi clear Conceal
+
 hi Keyword ctermfg=darkcyan
 hi Constant ctermfg=5*
 hi Comment ctermfg=2*
