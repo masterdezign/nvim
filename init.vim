@@ -1,6 +1,57 @@
 syntax on
 filetype plugin indent on
 
+" Favourite config
+
+" The leader key
+if ! exists("mapleader")
+  let mapleader = ","
+endif
+
+if ! exists("g:mapleader")
+  let g:mapleader = ","
+endif
+
+" Alternative to Esc from insert mode
+imap jj <Esc>:update<cr>
+
+" Quickly close the active window/tab
+map Q ZQ
+
+" Tab configuration
+map <C-a> :tabprevious<CR>
+map <C-e> :tabnext<CR>
+map <leader>n :tabnew<cr>
+
+" Turn backup off, since most stuff is in Git anyway...
+set nobackup
+set nowb
+set noswapfile
+
+" Delete word after the cursor including space after it in insert mode
+:imap <C-D> <C-O>dw
+
+" CTRL+K to delete until the end of line
+:imap <C-K> <C-O>D
+
+" List buffers
+:map gb :buffers<CR>
+
+" Select words in visual mode with Shift+arrows
+nmap <S-Right> ve
+nmap <S-Left> vb
+" Start visual mode in insert mode
+imap <S-Right> <Esc><S-Right>
+imap <S-Left> <Esc><S-Left>
+" Enter insert mode and insert a space
+noremap <Space> i<Space>
+
+" Save file and add it to git
+map <F5> :Gwrite<CR>
+imap <F5> <Esc><F5>
+
+"" End of Favourite config
+
 set nocompatible
 set number
 set showmode
