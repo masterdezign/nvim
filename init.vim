@@ -3,6 +3,27 @@ filetype plugin indent on
 
 " Favourite config
 
+" Use system clipboard
+" https://github.com/neovim/neovim/issues/583
+function! ClipboardYank()
+  call system('xclip -i -selection clipboard', @@)
+endfunction
+function! ClipboardPaste()
+  let @@ = system('xclip -o -selection clipboard')
+endfunction
+
+" " OS X version:
+" function! ClipboardYank()
+"   call system('pbcopy', @@)
+" endfunction
+" function! ClipboardPaste()
+"   let @@ = system('pbpaste')
+" endfunction
+
+vnoremap <silent> y y:call ClipboardYank()<cr>
+vnoremap <silent> d d:call ClipboardYank()<cr>
+nnoremap <silent> p :call ClipboardPaste()<cr>p
+
 " The leader key
 if ! exists("mapleader")
   let mapleader = ","
