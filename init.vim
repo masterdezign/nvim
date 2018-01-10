@@ -12,8 +12,11 @@ if ! exists("g:mapleader")
   let g:mapleader = ","
 endif
 
-" Alternative to Esc from insert mode
+" Esc from insert mode + save the file
 imap jj <Esc>:update<cr>
+
+" Open most recent used files
+map <leader><Space> :CtrlPMRUFiles<CR>
 
 " Quickly close the active window/tab
 map Q ZQ
@@ -139,6 +142,26 @@ au FileType haskell nnoremap <silent> <leader>ni :InteroInfo<CR>
 " Open/Close the Intero terminal window
 au FileType haskell nnoremap <silent> <leader>nn :InteroOpen<CR>
 au FileType haskell nnoremap <silent> <leader>nh :InteroHide<CR>
+
+" Map <Esc> to exit terminal-mode:
+tnoremap <Esc> <C-\><C-n>
+
+" Simulate |i_CTRL-R| in terminal-mode: >
+tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+
+" Use `ALT+{h,j,k,l}` to navigate windows from any mode: >
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " Reload the current file into REPL
 au FileType haskell nnoremap <silent> <leader>nf :InteroLoadCurrentFile<CR>
