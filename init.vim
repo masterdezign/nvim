@@ -24,6 +24,9 @@ vnoremap <silent> y y:call ClipboardYank()<cr>
 vnoremap <silent> d d:call ClipboardYank()<cr>
 nnoremap <silent> p :call ClipboardPaste()<cr>p
 
+" Mouse support
+set mouse=a
+
 " The leader key
 if ! exists("mapleader")
   let mapleader = ","
