@@ -77,6 +77,13 @@ noremap <Space> i<Space>
 map <F5> :Gwrite<CR>
 imap <F5> <Esc><F5>
 
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
+
+" Disable highlight when <leader><cr> is pressed
+" but preserve cursor coloring
+nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
+
 "" End of Favourite config
 
 set nocompatible
@@ -208,7 +215,7 @@ call neomake#configure#automake('w')
 let g:neomake_open_list = 2
 let g:neomake_haskell_enabled_makers = []
 
-au FileType haskell nmap <leader>c :GhcModSplitFunCase<CR>
+" au FileType haskell nmap <leader>c :GhcModSplitFunCase<CR>
 au FileType haskell nmap <leader>s :GhcModSigCodegen<CR>
 
 au FileType haskell nnoremap <silent> <leader>i :HsimportSymbol<CR>
