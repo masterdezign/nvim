@@ -89,6 +89,7 @@ nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
 set nocompatible
 set number
 set showmode
+set ignorecase
 set smartcase
 set smarttab
 set smartindent
