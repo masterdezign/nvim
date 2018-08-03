@@ -5,7 +5,7 @@ This setup assumes you are using the Haskell build tool Stack.
 To install this configuration including plugins:
 
 ```
-git clone --recursive git@github.com:johnmendonca/nvim.git ~/.config/nvim
+git clone --recursive https://github.com/masterdezign/nvim.git ~/.config/nvim
 ```
 
 Later you can update plugins:
